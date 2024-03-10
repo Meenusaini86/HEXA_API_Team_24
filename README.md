@@ -16,4 +16,6 @@ Generating API KEY for collection
  2) Double Click on Collection and go to 'PostMann CLI Configuration' TAB.
  3) Find Run button next to fork button.
 
+AT
+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
      
