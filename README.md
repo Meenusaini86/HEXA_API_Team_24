@@ -6,4 +6,5 @@ Setting Up Postman Pipeline.
  5) Select Operating Systen based on your Github setup.
  6) For this project it is linux.
  7) Copy Configurations from textbox.
- 8) In Github go to Actions tab and create a new 
+ 8) In Github go to Actions tab.
+ 9) Click on 'set up a workflow yourself' link and paste content from point 7.
