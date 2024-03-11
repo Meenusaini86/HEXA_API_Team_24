@@ -24,7 +24,12 @@ jobs:
 
     - name: Make Directory for result
       run: mkdir -p testResults
+
       
+    - name: Run Postman collections
+      run: |
+        newman run ./Testing/demo.json -e ./env/QA.json -g ./data/data.csv 
+  
     - name: Run Postman collections
       run: |
         newman run ./Testing/demo.json -e ./env/QA.json -d ./data/data.csv -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme > testResults/runreport1.html
