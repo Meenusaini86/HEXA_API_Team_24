@@ -28,11 +28,7 @@ jobs:
       
     - name: Run Postman collections
       run: |
-        newman run ./Testing/demo.json -g ./env/QA.json -d ./data/data.csv 
-  
-    - name: Run Postman collections
-      run: |
-        newman run ./Testing/demo.json -e ./env/QA.json -d ./data/data.csv -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme > testResults/runreport1.html
+        newman run ./Testing/demo.json -g ./env/QA.json -d ./data/data.csv -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme > testResults/runreport1.html
         
     - name: Output the run details
       uses: actions/upload-artifact@v2
