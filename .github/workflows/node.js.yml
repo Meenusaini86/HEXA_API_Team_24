@@ -28,7 +28,7 @@ jobs:
       
     - name: Run Postman collections
       run: |
-        newman run ./Testing/demo.json -g ./env/QA.json -d ./data/data.csv –reporters=cli,htmlextra
+        newman run ./Testing/demo.json -c -g ./env/QA.json -d ./data/data.csv –reporters=cli,htmlextra
     # -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme > testResults/runreport1.html
         
     - name: Output the run details
