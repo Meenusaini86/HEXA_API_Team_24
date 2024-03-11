@@ -29,10 +29,9 @@ jobs:
       run: |
         newman run ./Testing/demo.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme > testResults/runreport1.html
         
-    #    - name: Output the run details
-   #       uses: actions/upload-artifact@v2
-    #      with: 
-   #         name: RunReports
-    #        path: testResults
-#    - run: newman run "https://api.getpostman.com/collections/${{collectionID}}?apikey=${{ secrets.POSTMANAPIKEY }}" --environment "https://api.getpostman.com/environments/${{ environmentID }}?apikey=${{ secrets.POSTMANAPIKEY }}"
+    - name: Output the run details
+       uses: actions/upload-artifact@v2
+      with: 
+        name: RunReports
+        path: testResults
 
