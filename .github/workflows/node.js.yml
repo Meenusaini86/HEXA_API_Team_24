@@ -1,13 +1,46 @@
-name: Newman Test Run
-on:
+name: "build-test"
+on: # rebuild any PRs and main branch changes
+  pull_request:
   push:
     branches:
-    - main    
+      - main      
+
 jobs:
-  newman:
+  test-api:
     runs-on: ubuntu-latest
-    steps:      
-      - run: npm install -g newman
-      - run: newman run '/home/runner/work/HEXA_API_Team_24/Postman Collections/demo.json'
+    steps:
+    - uses: actions/checkout@v2
+    # Install Node on serve
+    - name: Install Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16.x'
+
+    - name: Install Newman
+      run: |
+        npm install -g newman
+        npm install -g newman-reporter-htmlextra
+
+    - name: Make Directory for result
+      run: mkdir -p testresult
+       
+    - name: Run Newman
+      uses: ./      
+      id: run-api-tests
+      with:
+        collection: "./Postman Collections/demo.json"
+        reporters: cli
+
+    - name: Run Newman - Failure Continue
+      uses: ./      
+      id: run-api-tests-failure
+      with:
+        collection: "./__tests__/collection_failure.json"
+        reporters: cli
+        suppressExitCode: "true"
+    
+    - name: Export Summary from Outputs
+      run: |
+        echo ${{ steps.run-api-tests.outputs.summary }}
 #    - run: newman run "https://api.getpostman.com/collections/${{collectionID}}?apikey=${{ secrets.POSTMANAPIKEY }}" --environment "https://api.getpostman.com/environments/${{ environmentID }}?apikey=${{ secrets.POSTMANAPIKEY }}"
 
