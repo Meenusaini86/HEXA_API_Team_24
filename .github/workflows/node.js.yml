@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:      
       - run: npm install -g newman
-      - run: newman run '${{ github.workspace }}/Postman Collections/demo.json'
+      - run: newman run '${{ github.workspace }}Postman Collections/demo.json'
 #    - run: newman run "https://api.getpostman.com/collections/${{collectionID}}?apikey=${{ secrets.POSTMANAPIKEY }}" --environment "https://api.getpostman.com/environments/${{ environmentID }}?apikey=${{ secrets.POSTMANAPIKEY }}"
 
