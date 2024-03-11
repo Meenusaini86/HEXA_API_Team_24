@@ -2,9 +2,4 @@ https://medium.com/@bhattacharyasudeshna/integrating-postman-collections-with-gi
 
 
 
-
-Setting Up Postman API backup in Github
-1) Integerate Postman with Github
-  https://learning.postman.com/docs/integrations/available-integrations/github/ 
-
  
