@@ -28,7 +28,7 @@ jobs:
       
     - name: Run Postman collections
       run: |
-        newman run ./Testing/demo.json -e ./env/QA.json -g ./data/data.csv 
+        newman run ./Testing/demo.json -g ./env/QA.json -d ./data/data.csv 
   
     - name: Run Postman collections
       run: |
