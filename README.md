@@ -1,6 +1,6 @@
 Setting Up Postman API backup in Github
-
-
+1) Integerate Postman with Github
+  https://learning.postman.com/docs/integrations/available-integrations/github/ 
 
 Setting Up CI / CD  Pipeline  with Postman-cli.
  1) Go to collection on postman
