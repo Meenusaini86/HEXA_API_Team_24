@@ -33,6 +33,41 @@
 			"response": []
 		},
 		{
+			"name": "Login Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f4cff3a-bb49-46ec-b058-8578db284208",
+						"exec": [
+							"var bearer_token =  pm.response.json(); \r",
+							"pm.collectionVariables.set(\"access_token_BK\", bearer_token.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "76e07c29-4d14-45c5-a529-322509a25c81",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"password\": \"Numpyninja@1\",\r\n  \"userLoginEmailId\": \"sdetorganizers@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "lms-marchapi-hackathon-a258d2bbd43b.herokuapp.com/lms/login"
+			},
+			"response": []
+		},
+		{
 			"name": "Logout",
 			"event": [
 				{
