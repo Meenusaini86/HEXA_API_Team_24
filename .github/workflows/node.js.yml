@@ -27,11 +27,12 @@ jobs:
 
       
     - name: Run Postman collections
-      continue-on-error: true
+      # continue-on-error: true
       run: |
         newman run ./Testing/demo.json -g ./env/QA.json -d ./data/data.csv -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme > testResults/runreport1.html
         
     - name: Output the run details
+      if: always()
       uses: actions/upload-artifact@v2
       with: 
         name: RunReports
