@@ -7,6 +7,20 @@
 	"item": [
 		{
 			"name": "GetAllPrograms",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1f02c27a-689d-4a19-86e2-7043b08582df",
+						"exec": [
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"id": "a389fdb1-45ed-4e91-b71c-393410030b8a",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -20,6 +34,20 @@
 		},
 		{
 			"name": "Logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "51cd4633-1bfa-4145-a401-d9ff1b04d458",
+						"exec": [
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"id": "56c8c6a5-824a-42f0-8f51-c0f7067360bf",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
