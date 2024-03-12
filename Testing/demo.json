@@ -9727,21 +9727,30 @@
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "ae02c608-3998-47e3-a128-b9debc26add9",
 								"exec": [
 									""
 								],
-								"type": "text/javascript",
-								"id": "ae02c608-3998-47e3-a128-b9debc26add9"
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "test",
 							"script": {
+								"id": "0e9543ed-ad61-4f97-bc64-a37b74c5576e",
 								"exec": [
-									""
+									"pm.test(\"Logout Successful\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status Code String Assertion\", ()=>{\r",
+									"    pm.expect(pm.response.status).to.equal('OK');\r",
+									"})\r",
+									"pm.test(\"Response Time is lower than 1000ms\", ()=>{\r",
+									"     pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"})"
 								],
-								"type": "text/javascript",
-								"id": "0e9543ed-ad61-4f97-bc64-a37b74c5576e"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -9795,7 +9804,7 @@
 									"});",
 									"",
 									"",
-									"postman.setNextRequest(\"Login_positive\"); "
+									"postman.setNextRequest(\"Logout_LMS_Invalid_negative\"); "
 								],
 								"type": "text/javascript"
 							}
@@ -9886,7 +9895,7 @@
 									"});\r",
 									"\r",
 									"\r",
-									"postman.setNextRequest(\"Logout_LMS_Positive\"); "
+									""
 								],
 								"type": "text/javascript"
 							}
