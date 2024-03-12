@@ -9,6 +9,75 @@
 			"name": "Program  Controller EndToEnd",
 			"item": [
 				{
+					"name": "Login_positive",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseData = pm.response.json();",
+									"pm.collectionVariables.set(\"access-token-DD\", responseData.token);",
+									"",
+									"",
+									"// Status Code Validation ",
+									"",
+									"",
+									"",
+									"pm.test(\"Status Code String Assertion\", ()=>{",
+									"    pm.expect(pm.response.status).to.equal('OK');",
+									"})",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Response Time Validation ",
+									"",
+									"pm.test(\"Response Time is lower than 1000ms\", ()=>{",
+									"     pm.expect(pm.response.responseTime).to.be.below(1000);",
+									"})",
+									"",
+									"",
+									"",
+									"// Header Validation ",
+									"",
+									"pm.test(\"Content-Type header validation\", () => {",
+									"  pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Server header validation\", () => {",
+									"  pm.response.to.have.header(\"Server\");",
+									"});",
+									"",
+									"",
+									"",
+									"postman.setNextRequest(\"C1_Create_NewProgram\");"
+								],
+								"type": "text/javascript",
+								"id": "30864f3c-3ae3-4af7-9118-30a17ee1da45"
+							}
+						}
+					],
+					"id": "f56af6e2-0f0f-4aa6-8fcb-03a41544e1bf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"Numpyninja@1\",\r\n  \"userLoginEmailId\": \"sdetorganizers@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://lms-marchapi-hackathon-a258d2bbd43b.herokuapp.com/lms/login"
+					},
+					"response": []
+				},
+				{
 					"name": "C1_Create_NewProgram",
 					"event": [
 						{
@@ -9629,7 +9698,7 @@
 									"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;\r",
 									"})\r",
 									"\r",
-									"postman.setNextRequest('Logout_LMS_Invalid_negative'); "
+									"postman.setNextRequest('Logout_LMS_Positive'); "
 								],
 								"type": "text/javascript"
 							}
@@ -9652,6 +9721,41 @@
 		{
 			"name": "Userlogin EndtoEnd",
 			"item": [
+				{
+					"name": "Logout_LMS_Positive",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "ae02c608-3998-47e3-a128-b9debc26add9"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "0e9543ed-ad61-4f97-bc64-a37b74c5576e"
+							}
+						}
+					],
+					"id": "f5910db7-af69-40f7-872e-c86b3328b2cc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/logoutlms"
+					},
+					"response": []
+				},
 				{
 					"name": "Login_InvalidEndPoint_Negative",
 					"event": [
@@ -9734,75 +9838,6 @@
 					"response": []
 				},
 				{
-					"name": "Login_positive",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var responseData = pm.response.json();",
-									"pm.collectionVariables.set(\"access-token-DD\", responseData.token);",
-									"",
-									"",
-									"// Status Code Validation ",
-									"",
-									"",
-									"",
-									"pm.test(\"Status Code String Assertion\", ()=>{",
-									"    pm.expect(pm.response.status).to.equal('OK');",
-									"})",
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"// Response Time Validation ",
-									"",
-									"pm.test(\"Response Time is lower than 1000ms\", ()=>{",
-									"     pm.expect(pm.response.responseTime).to.be.below(1000);",
-									"})",
-									"",
-									"",
-									"",
-									"// Header Validation ",
-									"",
-									"pm.test(\"Content-Type header validation\", () => {",
-									"  pm.response.to.have.header(\"Content-Type\");",
-									"});",
-									"",
-									"pm.test(\"Server header validation\", () => {",
-									"  pm.response.to.have.header(\"Server\");",
-									"});",
-									"",
-									"",
-									"",
-									"postman.setNextRequest(\"C1_Create_NewProgram\");"
-								],
-								"type": "text/javascript",
-								"id": "30864f3c-3ae3-4af7-9118-30a17ee1da45"
-							}
-						}
-					],
-					"id": "f56af6e2-0f0f-4aa6-8fcb-03a41544e1bf",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"Numpyninja@1\",\r\n  \"userLoginEmailId\": \"sdetorganizers@gmail.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "http://lms-marchapi-hackathon-a258d2bbd43b.herokuapp.com/lms/login"
-					},
-					"response": []
-				},
-				{
 					"name": "Logout_LMS_Invalid_negative",
 					"event": [
 						{
@@ -9865,41 +9900,6 @@
 						"method": "GET",
 						"header": [],
 						"url": "{{base_url}}/{{invalid_endpoint}}"
-					},
-					"response": []
-				},
-				{
-					"name": "Logout_LMS_Positive",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"id": "ae02c608-3998-47e3-a128-b9debc26add9"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"id": "0e9543ed-ad61-4f97-bc64-a37b74c5576e"
-							}
-						}
-					],
-					"id": "f5910db7-af69-40f7-872e-c86b3328b2cc",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{base_url}}/logoutlms"
 					},
 					"response": []
 				}
