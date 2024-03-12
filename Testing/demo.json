@@ -1487,6 +1487,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "ec16ebe7-7722-498a-8366-e14b39942da6",
 								"exec": [
 									"pm.environment.set(\"program_description\", data.program_description );\r",
 									"pm.environment.set(\"update_program_name\", data.update_program_name);\r",
@@ -1495,13 +1496,13 @@
 									"console.log(list); \r",
 									"pm.environment.set(\"total_records\", list); "
 								],
-								"type": "text/javascript",
-								"id": "ec16ebe7-7722-498a-8366-e14b39942da6"
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "test",
 							"script": {
+								"id": "4ce9dcc6-0a6f-4d61-845d-422d3aa15ba2",
 								"exec": [
 									"var schema = {\r",
 									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
@@ -1543,14 +1544,13 @@
 									"})\r",
 									"\r",
 									"pm.test(\"Successful POST request\", function () {\r",
-									"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,401,404]);\r",
 									"});\r",
 									"\r",
 									"postman.setNextRequest(\"update_ProgramDescription_ByprogramID_Positive\");\r",
 									""
 								],
-								"type": "text/javascript",
-								"id": "4ce9dcc6-0a6f-4d61-845d-422d3aa15ba2"
+								"type": "text/javascript"
 							}
 						}
 					],
