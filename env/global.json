@@ -1,80 +1,15 @@
 {
-	"id": "2ff089cc-42bd-423d-8b35-ddc27c0aa604",
+	"id": "eedad3e1-79ea-45dd-8286-44a078a5378a",
 	"values": [
-		{
-			"key": "BaseURI",
-			"value": "https://lms-marchapi-hackathon-a258d2bbd43b.herokuapp.com/lms",
-			"enabled": true
-		},
-		{
-			"key": "BatchId",
-			"value": "8497",
-			"enabled": true
-		},
 		{
 			"key": "base_url",
 			"value": "https://lms-marchapi-hackathon-a258d2bbd43b.herokuapp.com/lms",
-			"enabled": true
-		},
-		{
-			"key": "SingleUser",
-			"value": "U49",
-			"type": "default",
-			"enabled": true
-		},
-		{
-			"key": "roleID",
-			"value": "18",
-			"type": "default",
-			"enabled": true
-		},
-		{
-			"key": "programID",
-			"value": "1663",
-			"type": "default",
-			"enabled": true
-		},
-		{
-			"key": "batchID",
-			"value": "8477",
-			"type": "default",
-			"enabled": true
-		},
-		{
-			"key": "DeleteID",
-			"value": "U56",
-			"type": "default",
-			"enabled": true
-		},
-		{
-			"key": "Invalid_BatchId",
-			"value": "0034",
-			"enabled": true
-		},
-		{
-			"key": "nvalid_PgID",
-			"value": "Invalid_BatchId",
-			"enabled": true
-		},
-		{
-			"key": "Invalid_BtchName",
-			"value": "March24-API HEXA-0090",
-			"enabled": true
-		},
-		{
-			"key": "Invalid_PgID",
-			"value": "57798676",
-			"enabled": true
-		},
-		{
-			"key": "updateUserStatus",
-			"value": "U460",
 			"type": "default",
 			"enabled": true
 		}
 	],
 	"name": "Globals",
 	"_postman_variable_scope": "globals",
-	"_postman_exported_at": "2024-03-11T21:32:31.671Z",
+	"_postman_exported_at": "2024-03-12T04:39:30.470Z",
 	"_postman_exported_using": "Postman/10.23.12-240308-0814"
 }
