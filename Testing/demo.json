@@ -14,6 +14,7 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "30864f3c-3ae3-4af7-9118-30a17ee1da45",
 								"exec": [
 									"var responseData = pm.response.json();",
 									"pm.collectionVariables.set(\"access-token-DD\", responseData.token);",
@@ -52,8 +53,7 @@
 									"",
 									"postman.setNextRequest(\"C1_Create_NewProgram\");"
 								],
-								"type": "text/javascript",
-								"id": "30864f3c-3ae3-4af7-9118-30a17ee1da45"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -73,7 +73,7 @@
 								}
 							}
 						},
-						"url": "http://lms-marchapi-hackathon-a258d2bbd43b.herokuapp.com/lms/login"
+						"url": "{{base_url}}/login"
 					},
 					"response": []
 				},
@@ -9748,7 +9748,8 @@
 									"})\r",
 									"pm.test(\"Response Time is lower than 1000ms\", ()=>{\r",
 									"     pm.expect(pm.response.responseTime).to.be.below(1000);\r",
-									"})"
+									"})\r",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -9909,6 +9910,18 @@
 						"method": "GET",
 						"header": [],
 						"url": "{{base_url}}/{{invalid_endpoint}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Login_Valid_Positive",
+					"id": "1ecbf666-bdb4-4955-9a72-48a15eef97d3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
