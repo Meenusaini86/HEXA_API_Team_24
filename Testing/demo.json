@@ -9750,7 +9750,7 @@
 									"     pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 									"})\r",
 									"\r",
-									"postman.setNextRequest(\"Login_positive\");"
+									"postman.setNextRequest(\"Login_InvalidEndPoint_Negative\");"
 								],
 								"type": "text/javascript"
 							}
@@ -9806,7 +9806,7 @@
 									"});",
 									"",
 									"",
-									"postman.setNextRequest(\"Logout_LMS_Invalid_negative\"); "
+									"postman.setNextRequest(\"Login_Relogin_positive\"); "
 								],
 								"type": "text/javascript"
 							}
@@ -9849,13 +9849,17 @@
 					"response": []
 				},
 				{
-					"name": "Login_positive",
+					"name": "Login_Relogin_positive",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"id": "ea6aeef1-392d-4096-8bfe-6c1359c68e82",
 								"exec": [
+									"var responseData = pm.response.json();\r",
+									"pm.collectionVariables.set(\"access-token-DD\", responseData.token);\r",
+									"\r",
+									"\r",
 									"pm.test(\"Login Successful\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
@@ -9941,6 +9945,7 @@
 									"  pm.response.to.have.header(\"Server\");\r",
 									"});\r",
 									"\r",
+									"postman.setNextRequest(\"Logout_LMS_Final_Positive\"); \r",
 									"\r",
 									""
 								],
@@ -9960,7 +9965,7 @@
 					"response": []
 				},
 				{
-					"name": "Logout_LMS_Positive Copy",
+					"name": "Logout_LMS_Final_Positive",
 					"event": [
 						{
 							"listen": "prerequest",
