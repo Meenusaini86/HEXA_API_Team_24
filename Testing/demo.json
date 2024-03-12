@@ -9653,14 +9653,14 @@
 			"name": "Userlogin EndtoEnd",
 			"item": [
 				{
-					"name": "Login_NoAuth_Negative",
+					"name": "Login_InvalidEndPoint_Negative",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
+								"id": "30864f3c-3ae3-4af7-9118-30a17ee1da45",
 								"exec": [
-									"var responseData = pm.response.json();",
-									"pm.collectionVariables.set(\"access-token-DD\", responseData.token);",
+									"",
 									"",
 									"",
 									"// Status Code Validation ",
@@ -9693,11 +9693,9 @@
 									"});",
 									"",
 									"",
-									"",
-									"postman.setNextRequest(\"C1_Create_NewProgram\");"
+									"postman.setNextRequest(\"Login_positive\"); "
 								],
-								"type": "text/javascript",
-								"id": "30864f3c-3ae3-4af7-9118-30a17ee1da45"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -9706,6 +9704,9 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
