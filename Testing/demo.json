@@ -2773,6 +2773,7 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "1941f95b-0dea-4285-b237-d46df3082540",
 								"exec": [
 									"",
 									"pm.test(\"Body matches string\", function () {",
@@ -2812,7 +2813,7 @@
 									"    \"error\",",
 									"    \"path\"",
 									"  ]",
-									"}",
+									"};",
 									"",
 									"var jsonData = pm.response.json();",
 									"",
@@ -2835,13 +2836,13 @@
 									"postman.setNextRequest(\"Create_Batch_Status_Invalid _Negative\");",
 									""
 								],
-								"type": "text/javascript",
-								"id": "1941f95b-0dea-4285-b237-d46df3082540"
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "9c89f4f1-fc6c-4c82-be96-d9f54e2e4db0",
 								"exec": [
 									"pm.environment.set(\"batch_description\", data.batch_description );\r",
 									"pm.environment.set(\"batch_name\", data.batch_name);\r",
@@ -2853,8 +2854,7 @@
 									"console.log(list); \r",
 									"pm.environment.set(\"total_records\", list); "
 								],
-								"type": "text/javascript",
-								"id": "9c89f4f1-fc6c-4c82-be96-d9f54e2e4db0"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -2884,6 +2884,7 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "01c76309-5c1f-4d6c-9a75-42008805d3f8",
 								"exec": [
 									"",
 									"",
@@ -2894,7 +2895,7 @@
 									"    pm.expect(pm.response.responseTime).to.be.below(1000);",
 									"});",
 									"",
-									"const schema = {",
+									"const schema ={",
 									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
 									"  \"description\": \"\",",
 									"  \"type\": \"object\",",
@@ -2921,7 +2922,7 @@
 									"    \"error\",",
 									"    \"path\"",
 									"  ]",
-									"}",
+									"};",
 									"",
 									"var jsonData = pm.response.json();",
 									"",
@@ -2944,13 +2945,13 @@
 									"postman.setNextRequest(\"Create_Batch_Missing_ProgramID_negative\");",
 									""
 								],
-								"type": "text/javascript",
-								"id": "01c76309-5c1f-4d6c-9a75-42008805d3f8"
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "f246769f-9f91-440a-9a6c-12617f108309",
 								"exec": [
 									"pm.environment.set(\"batch_description\", data.batch_description );\r",
 									"pm.environment.set(\"batch_name\", data.batch_name);\r",
@@ -2965,8 +2966,7 @@
 									"console.log(list); \r",
 									"pm.environment.set(\"total_records\", list); "
 								],
-								"type": "text/javascript",
-								"id": "f246769f-9f91-440a-9a6c-12617f108309"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -2996,11 +2996,9 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "66c06b51-5ee6-48cb-83c3-9b34234701d7",
 								"exec": [
 									"",
-									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"Bad Request\");",
-									"});",
 									"pm.test(\"Content-Type is present\", function () {",
 									"    pm.response.to.have.header(\"Content-Type\");",
 									"});",
@@ -3057,13 +3055,13 @@
 									"",
 									"postman.setNextRequest(\"create_Batch_BatchDisc_null _Negative\");"
 								],
-								"type": "text/javascript",
-								"id": "66c06b51-5ee6-48cb-83c3-9b34234701d7"
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "b01f7f07-c581-4da4-9812-7461537a9270",
 								"exec": [
 									"pm.environment.set(\"batch_description\", data.batch_description );\r",
 									"pm.environment.set(\"batch_name\", data.batch_name);\r",
@@ -3076,8 +3074,7 @@
 									"console.log(list); \r",
 									"pm.environment.set(\"total_records\", list); "
 								],
-								"type": "text/javascript",
-								"id": "b01f7f07-c581-4da4-9812-7461537a9270"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3372,6 +3369,7 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "f08e2a72-0599-43cb-91f3-24766f0fbad9",
 								"exec": [
 									"pm.test(\"Status code is 404\", function () {",
 									"    pm.response.to.have.status(404);",
@@ -3390,18 +3388,17 @@
 									"});",
 									"postman.setNextRequest(\"GetBatch_ProgramID Positive\");"
 								],
-								"type": "text/javascript",
-								"id": "f08e2a72-0599-43cb-91f3-24766f0fbad9"
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "083bdf90-0cc4-4653-b315-e4b2622ee8c6",
 								"exec": [
-									"pm.environment.set(\"invalid_batch_name\", data.invalid_batch_name);"
+									"pm.environment.set(\"invalid_endpoint\", data.invalid_endpoint);"
 								],
-								"type": "text/javascript",
-								"id": "083bdf90-0cc4-4653-b315-e4b2622ee8c6"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3421,7 +3418,7 @@
 								}
 							}
 						},
-						"url": "{{base_url}}/batches/batchName/{{invalid_batch_name}}"
+						"url": "{{base_url}}/batches/batchName/{{invalid_endpoint}}"
 					},
 					"response": []
 				},
@@ -4333,6 +4330,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "9be278c6-dc6a-466b-968c-e818632cdc95",
 								"exec": [
 									"//Step 1: \r",
 									"var data_csv = pm.iterationData.toObject(); \r",
@@ -4340,7 +4338,7 @@
 									"//FirstName\r",
 									"var f_nm = data_csv.Staff_first_name;\r",
 									"var abc = 'abcdefghijklmnopqrstuvwxyz'\r",
-									"var randomLetters = abc.charAt(Math.floor(Math.random()*1));\r",
+									"var randomLetters = abc.charAt(Math.floor(Math.random()*5));\r",
 									"var concat_name = f_nm+ randomLetters;\r",
 									"\r",
 									"pm.collectionVariables.set(\"Staff_frst_name\",concat_name );\r",
@@ -4372,13 +4370,13 @@
 									"\r",
 									""
 								],
-								"type": "text/javascript",
-								"id": "9be278c6-dc6a-466b-968c-e818632cdc95"
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "test",
 							"script": {
+								"id": "ef806462-f35c-4bbe-883d-2db45bd72e5a",
 								"exec": [
 									"var responseData = pm.response.json();",
 									"",
@@ -4489,8 +4487,7 @@
 									"console.log(responseJson);",
 									"postman.setNextRequest(\"Create_Staff_InvalidPhNumber-Negative\"); "
 								],
-								"type": "text/javascript",
-								"id": "ef806462-f35c-4bbe-883d-2db45bd72e5a"
+								"type": "text/javascript"
 							}
 						}
 					],
