@@ -9572,6 +9572,7 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "7de07e19-dca1-4d37-806d-c93a9193ab0e",
 								"exec": [
 									"//status code validation\r",
 									"\r",
@@ -9628,10 +9629,9 @@
 									"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;\r",
 									"})\r",
 									"\r",
-									"postman.setNextRequest('Logout_LMS'); "
+									"postman.setNextRequest('Logout_LMS_Invalid_negative'); "
 								],
-								"type": "text/javascript",
-								"id": "7de07e19-dca1-4d37-806d-c93a9193ab0e"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -9665,13 +9665,11 @@
 									"",
 									"// Status Code Validation ",
 									"",
-									"",
-									"",
 									"pm.test(\"Status Code String Assertion\", ()=>{",
-									"    pm.expect(pm.response.status).to.equal('OK');",
+									"    pm.expect(pm.response.status).to.equal('Unauthorized');",
 									"})",
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
 									"});",
 									"",
 									"// Response Time Validation ",
@@ -9697,6 +9695,16 @@
 								],
 								"type": "text/javascript"
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f4b56ee2-d3d6-4d03-b57b-057820ded78e",
+								"exec": [
+									"pm.environment.set(\"invalid_endpoint\", data.invalid_endpoint);"
+								],
+								"type": "text/javascript"
+							}
 						}
 					],
 					"id": "36891d5a-c47d-4adf-be15-5e6cf1d0b55d",
@@ -9705,7 +9713,10 @@
 					},
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "digest",
+							"digest": {
+								"algorithm": "MD5"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -9718,7 +9729,7 @@
 								}
 							}
 						},
-						"url": "http://lms-marchapi-hackathon-a258d2bbd43b.herokuapp.com/lms/login"
+						"url": "{{base_url}}/{{invalid_endpoint}}"
 					},
 					"response": []
 				},
@@ -9792,7 +9803,73 @@
 					"response": []
 				},
 				{
-					"name": "Logout_LMS",
+					"name": "Logout_LMS_Invalid_negative",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ae02c608-3998-47e3-a128-b9debc26add9",
+								"exec": [
+									"pm.environment.set(\"invalid_endpoint\", data.invalid_endpoint);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "0e9543ed-ad61-4f97-bc64-a37b74c5576e",
+								"exec": [
+									"\r",
+									"\r",
+									"\r",
+									"// Status Code Validation \r",
+									"\r",
+									"pm.test(\"Status Code String Assertion\", ()=>{\r",
+									"    pm.expect(pm.response.status).to.equal('Not Found');\r",
+									"})\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"// Response Time Validation \r",
+									"\r",
+									"pm.test(\"Response Time is lower than 1000ms\", ()=>{\r",
+									"     pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"})\r",
+									"\r",
+									"\r",
+									"\r",
+									"// Header Validation \r",
+									"\r",
+									"pm.test(\"Content-Type header validation\", () => {\r",
+									"  pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Server header validation\", () => {\r",
+									"  pm.response.to.have.header(\"Server\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"postman.setNextRequest(\"Logout_LMS_Positive\"); "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "22bec672-3e88-4d33-8852-f8f2b6129bf1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/{{invalid_endpoint}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout_LMS_Positive",
 					"event": [
 						{
 							"listen": "prerequest",
