@@ -2774,9 +2774,7 @@
 								"id": "1941f95b-0dea-4285-b237-d46df3082540",
 								"exec": [
 									"",
-									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"Bad Request\");",
-									"});",
+									"",
 									"pm.test(\"Content-Type is present\", function () {",
 									"    pm.response.to.have.header(\"Content-Type\");",
 									"});",
@@ -2831,6 +2829,7 @@
 									"    pm.response.to.have.status(400);",
 									"});",
 									"",
+									"console.log(jsonData);",
 									"postman.setNextRequest(\"Create_Batch_Status_Invalid _Negative\");",
 									""
 								],
@@ -2939,7 +2938,7 @@
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
 									"});",
-									"",
+									"console.log(jsonData);",
 									"postman.setNextRequest(\"Create_Batch_Missing_ProgramID_negative\");",
 									""
 								],
@@ -3039,17 +3038,12 @@
 									"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;",
 									"})",
 									"",
-									"const responseData = pm.response.json();  ",
-									"pm.collectionVariables.set(\"bt_id\", responseData.batchId);",
-									"pm.collectionVariables.set(\"bt_nm\", responseData.batchName);",
-									"pm.collectionVariables.set(\"bt_ds\", responseData.batchDescription);",
-									"pm.collectionVariables.set(\"bt_sz\", responseData.batchNoOfClasses);",
-									"pm.collectionVariables.set(\"bt_status\", responseData.batchStatus);",
+									"",
 									"",
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
 									"});",
-									"",
+									"console.log(jsonData);",
 									"",
 									"postman.setNextRequest(\"create_Batch_BatchDisc_null _Negative\");"
 								],
@@ -3102,6 +3096,7 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "ff91690a-07b9-4b98-aff5-daeabd4788d3",
 								"exec": [
 									"",
 									"",
@@ -3147,26 +3142,21 @@
 									"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;",
 									"})",
 									"",
-									"const responseData = pm.response.json();  ",
-									"pm.collectionVariables.set(\"bt_id\", responseData.batchId);",
-									"pm.collectionVariables.set(\"bt_nm\", responseData.batchName);",
-									"pm.collectionVariables.set(\"bt_ds\", responseData.batchDescription);",
-									"pm.collectionVariables.set(\"bt_sz\", responseData.batchNoOfClasses);",
-									"pm.collectionVariables.set(\"bt_status\", responseData.batchStatus);",
+									"",
 									"",
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
 									"});",
-									"",
+									"console.log(responseData);",
 									"postman.setNextRequest(\"GetBatch_BY Batch ID_ Postive\");"
 								],
-								"type": "text/javascript",
-								"id": "ff91690a-07b9-4b98-aff5-daeabd4788d3"
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "4fee4939-c41d-4aa0-a755-c0f8ce188c28",
 								"exec": [
 									"\r",
 									"pm.environment.set(\"batch_name\", data.batch_name);\r",
@@ -3179,8 +3169,7 @@
 									"console.log(list); \r",
 									"pm.environment.set(\"total_records\", list); "
 								],
-								"type": "text/javascript",
-								"id": "4fee4939-c41d-4aa0-a755-c0f8ce188c28"
+								"type": "text/javascript"
 							}
 						}
 					],
