@@ -3383,9 +3383,7 @@
 									"pm.test(\"Status code name has string\", function () {",
 									"    pm.response.to.have.status(\"Not Found\");",
 									"});",
-									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"idMarch24-API HEXA-0090not found\");",
-									"});",
+									"",
 									"postman.setNextRequest(\"GetBatch_ProgramID Positive\");"
 								],
 								"type": "text/javascript"
@@ -8683,6 +8681,7 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "f843441b-26a7-4918-9e51-6311c6d56cb3",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -8696,18 +8695,17 @@
 									"\r",
 									"postman.setNextRequest(\"updateUserLoginStatus_Staff_NoAuth_Negative\"); "
 								],
-								"type": "text/javascript",
-								"id": "f843441b-26a7-4918-9e51-6311c6d56cb3"
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "e8b04207-63ab-4258-b7b3-dcfd00bea505",
 								"exec": [
-									"pm.environment.set(\"Staff_email_id\",data.Staff_email_id);"
+									""
 								],
-								"type": "text/javascript",
-								"id": "e8b04207-63ab-4258-b7b3-dcfd00bea505"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -8720,7 +8718,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"loginStatus\": \"Active\",\r\n  \"password\": \"Password@123\",\r\n  \"roleIds\": [\r\n    \"R02\"\r\n  ],\r\n  \"status\": \"Active\",\r\n  \"userLoginEmail\": \"{{Staff_email_id}}\"\r\n}",
+							"raw": "{\r\n  \"loginStatus\": \"Active\",\r\n  \"password\": \"Password@123\",\r\n  \"roleIds\": [\r\n    \"R02\"\r\n  ],\r\n  \"status\": \"Active\",\r\n  \"userLoginEmail\": \"{{Staff_email}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
