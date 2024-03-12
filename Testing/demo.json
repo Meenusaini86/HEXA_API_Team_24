@@ -9,75 +9,6 @@
 			"name": "Program  Controller EndToEnd",
 			"item": [
 				{
-					"name": "Login_positive",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var responseData = pm.response.json();",
-									"pm.collectionVariables.set(\"access-token-DD\", responseData.token);",
-									"",
-									"",
-									"// Status Code Validation ",
-									"",
-									"",
-									"",
-									"pm.test(\"Status Code String Assertion\", ()=>{",
-									"    pm.expect(pm.response.status).to.equal('OK');",
-									"})",
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"// Response Time Validation ",
-									"",
-									"pm.test(\"Response Time is lower than 1000ms\", ()=>{",
-									"     pm.expect(pm.response.responseTime).to.be.below(1000);",
-									"})",
-									"",
-									"",
-									"",
-									"// Header Validation ",
-									"",
-									"pm.test(\"Content-Type header validation\", () => {",
-									"  pm.response.to.have.header(\"Content-Type\");",
-									"});",
-									"",
-									"pm.test(\"Server header validation\", () => {",
-									"  pm.response.to.have.header(\"Server\");",
-									"});",
-									"",
-									"",
-									"",
-									"postman.setNextRequest(\"C1_Create_NewProgram\");"
-								],
-								"type": "text/javascript",
-								"id": "30864f3c-3ae3-4af7-9118-30a17ee1da45"
-							}
-						}
-					],
-					"id": "f56af6e2-0f0f-4aa6-8fcb-03a41544e1bf",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"Numpyninja@1\",\r\n  \"userLoginEmailId\": \"sdetorganizers@gmail.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "http://lms-marchapi-hackathon-a258d2bbd43b.herokuapp.com/lms/login"
-					},
-					"response": []
-				},
-				{
 					"name": "C1_Create_NewProgram",
 					"event": [
 						{
@@ -9721,6 +9652,144 @@
 		{
 			"name": "Userlogin EndtoEnd",
 			"item": [
+				{
+					"name": "Login_NoAuth_Negative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseData = pm.response.json();",
+									"pm.collectionVariables.set(\"access-token-DD\", responseData.token);",
+									"",
+									"",
+									"// Status Code Validation ",
+									"",
+									"",
+									"",
+									"pm.test(\"Status Code String Assertion\", ()=>{",
+									"    pm.expect(pm.response.status).to.equal('OK');",
+									"})",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Response Time Validation ",
+									"",
+									"pm.test(\"Response Time is lower than 1000ms\", ()=>{",
+									"     pm.expect(pm.response.responseTime).to.be.below(1000);",
+									"})",
+									"",
+									"",
+									"",
+									"// Header Validation ",
+									"",
+									"pm.test(\"Content-Type header validation\", () => {",
+									"  pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Server header validation\", () => {",
+									"  pm.response.to.have.header(\"Server\");",
+									"});",
+									"",
+									"",
+									"",
+									"postman.setNextRequest(\"C1_Create_NewProgram\");"
+								],
+								"type": "text/javascript",
+								"id": "30864f3c-3ae3-4af7-9118-30a17ee1da45"
+							}
+						}
+					],
+					"id": "36891d5a-c47d-4adf-be15-5e6cf1d0b55d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"Numpyninja@1\",\r\n  \"userLoginEmailId\": \"sdetorganizers@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://lms-marchapi-hackathon-a258d2bbd43b.herokuapp.com/lms/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Login_positive",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseData = pm.response.json();",
+									"pm.collectionVariables.set(\"access-token-DD\", responseData.token);",
+									"",
+									"",
+									"// Status Code Validation ",
+									"",
+									"",
+									"",
+									"pm.test(\"Status Code String Assertion\", ()=>{",
+									"    pm.expect(pm.response.status).to.equal('OK');",
+									"})",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Response Time Validation ",
+									"",
+									"pm.test(\"Response Time is lower than 1000ms\", ()=>{",
+									"     pm.expect(pm.response.responseTime).to.be.below(1000);",
+									"})",
+									"",
+									"",
+									"",
+									"// Header Validation ",
+									"",
+									"pm.test(\"Content-Type header validation\", () => {",
+									"  pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Server header validation\", () => {",
+									"  pm.response.to.have.header(\"Server\");",
+									"});",
+									"",
+									"",
+									"",
+									"postman.setNextRequest(\"C1_Create_NewProgram\");"
+								],
+								"type": "text/javascript",
+								"id": "30864f3c-3ae3-4af7-9118-30a17ee1da45"
+							}
+						}
+					],
+					"id": "f56af6e2-0f0f-4aa6-8fcb-03a41544e1bf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"Numpyninja@1\",\r\n  \"userLoginEmailId\": \"sdetorganizers@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://lms-marchapi-hackathon-a258d2bbd43b.herokuapp.com/lms/login"
+					},
+					"response": []
+				},
 				{
 					"name": "Logout_LMS",
 					"event": [
