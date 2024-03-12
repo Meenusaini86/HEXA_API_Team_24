@@ -8816,6 +8816,7 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "1cf9fc04-1a9d-49c4-9f8e-1a32e590f2b3",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
@@ -8863,8 +8864,17 @@
 									"\r",
 									"postman.setNextRequest(\"Delete SingleUser invalid User\"); "
 								],
-								"type": "text/javascript",
-								"id": "1cf9fc04-1a9d-49c4-9f8e-1a32e590f2b3"
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0fd942d2-12ae-43a4-80f3-087d44590701",
+								"exec": [
+									"pm.environment.set(\"invalid_userID\", data.invalid_userID);"
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -8884,7 +8894,7 @@
 								}
 							}
 						},
-						"url": "{{base_url}}/users/userLogin/{{invalid_endpoint}}"
+						"url": "{{base_url}}/users/userLogin/{{invalid_userID}}"
 					},
 					"response": []
 				},
