@@ -9749,7 +9749,8 @@
 									"pm.test(\"Response Time is lower than 1000ms\", ()=>{\r",
 									"     pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 									"})\r",
-									""
+									"\r",
+									"postman.setNextRequest(\"Login_positive\");"
 								],
 								"type": "text/javascript"
 							}
@@ -9848,6 +9849,51 @@
 					"response": []
 				},
 				{
+					"name": "Login_positive",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ea6aeef1-392d-4096-8bfe-6c1359c68e82",
+								"exec": [
+									"pm.test(\"Login Successful\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status Code String Assertion\", ()=>{\r",
+									"    pm.expect(pm.response.status).to.equal('OK');\r",
+									"})\r",
+									"pm.test(\"Response Time is lower than 1000ms\", ()=>{\r",
+									"     pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"}); \r",
+									"\r",
+									"postman.setNextRequest(\"Logout_LMS_Invalid_negative\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "1e4f3501-c939-4c7d-ab20-5ed5b1f17dbc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"Numpyninja@1\",\r\n  \"userLoginEmailId\": \"sdetorganizers@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/login"
+					},
+					"response": []
+				},
+				{
 					"name": "Logout_LMS_Invalid_negative",
 					"event": [
 						{
@@ -9914,14 +9960,47 @@
 					"response": []
 				},
 				{
-					"name": "Login_Valid_Positive",
-					"id": "1ecbf666-bdb4-4955-9a72-48a15eef97d3",
+					"name": "Logout_LMS_Positive Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ae02c608-3998-47e3-a128-b9debc26add9",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "0e9543ed-ad61-4f97-bc64-a37b74c5576e",
+								"exec": [
+									"pm.test(\"Logout Successful\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status Code String Assertion\", ()=>{\r",
+									"    pm.expect(pm.response.status).to.equal('OK');\r",
+									"})\r",
+									"pm.test(\"Response Time is lower than 1000ms\", ()=>{\r",
+									"     pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "0941c17c-552b-4fd7-a20c-8fc5f9044796",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "{{base_url}}/logoutlms"
 					},
 					"response": []
 				}
