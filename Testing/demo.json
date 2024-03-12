@@ -4889,16 +4889,16 @@
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "cf4836d9-9377-4e1c-a4dd-135d1fcad6d5",
 								"exec": [
 									"\r",
 									"//Step 1: \r",
 									"var data_csv = pm.iterationData.toObject(); \r",
 									"\r",
-									"//FirstName Student\r",
+									"//FirstName\r",
 									"var f_nm = data_csv.Student_first_Name;\r",
-									"var abc = 'abcdefghijklmnopqrstuvwxyz'\r",
-									"var randomLetters = abc.charAt(Math.floor(Math.random()*1));\r",
-									"var concat_name = f_nm+ randomLetters;\r",
+									"var firstNm =   \"{{$randomFirstName}}\";\r",
+									"var concat_name = f_nm+ firstNm;\r",
 									"\r",
 									"pm.collectionVariables.set(\"first_nm_stud\",concat_name );\r",
 									"\r",
@@ -4926,13 +4926,13 @@
 									"\r",
 									""
 								],
-								"type": "text/javascript",
-								"id": "cf4836d9-9377-4e1c-a4dd-135d1fcad6d5"
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "test",
 							"script": {
+								"id": "68cf73f1-dee0-4ba8-8752-1e92ea1fbe5e",
 								"exec": [
 									"var responseData = pm.response.json();\r",
 									"\r",
@@ -5040,8 +5040,7 @@
 									"\r",
 									""
 								],
-								"type": "text/javascript",
-								"id": "68cf73f1-dee0-4ba8-8752-1e92ea1fbe5e"
+								"type": "text/javascript"
 							}
 						}
 					],
